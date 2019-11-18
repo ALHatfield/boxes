@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<!--#1-->
+	<div class="pos-rel">
+		<div class="pos-abs">
+			<h1>#1 .pos-rel > .pos-abs</h1>
+		</div>
+	</div>
+
+<!--#4-->
+	<div class="s4">
+		<h1>#4 experimental .section</h1>
+		<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, eos explicabo minus nam sed voluptatum.</h2>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aspernatur error ipsam laudantium nam officiis pariatur, quibusdam quos repellat veritatis.</h3>
+		<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolorem excepturi id illo in minus officiis omnis praesentium. Ad at ipsum laudantium sed, sequi tempora?</h4>
+	</div>
+<!--#5-->
+	<div class="pos-rel">
+		<div class="pos-abs s5">
+			<form id="fooorm">
+				<h3>#5</h3>
+				<select id="foobar">
+					<option value="foo">foo<option>
+					<option value="bar">bar<option>
+				</select>
+				<button type="submit">submit</button>
+			</form>
+		</div>
+	</div>
+<!--#6-->
+	<div class="pos-rel">
+		<div class="s6">
+
+		</div>
+	</div>
+
+<!--
+	-->
+<!--	-->
+<!-- [css] --->
+<style>
+	/* ----[reset]----*/
+	html {
+		box-sizing: border-box;
+		font-size: 16px;
+	}
+	body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	/*----[#1]----*/
+	.pos-rel {
+		position: relative;
+		height: 70vh;
+		background-color: #393939;
+		outline: dashed 3px tomato;
+	}
+	.pos-abs {
+		position: absolute;
+		background-color: #939393;
+		border: dashed 3px aquamarine;
+	}
+
+
+	/* ----[container's layout]---- */
+
+
+	/*----[#4]----*/
+	.s4 {
+		position: relative;
+		height: 70vh;
+		width: 100%;
+		background: url(./bg-polygon-01.svg) top no-repeat;
+		background-size: contain;	/* contains the entire image
+			inside regardless if the image covers the full section */
+	}
+	.s4:after {
+		content: "";
+		display: block;
+		height: 100px;
+		width: 100vw;
+		background: url(./bg-polygon-02.svg) bottom no-repeat;
+		background-size: contain;	/* contains the entire image
+			inside regardless if the image covers the full section */
+	}
+	.s4:nth-child(n) {
+		content: "";
+		height: 100%;
+		width: 100%;
+		/*margin: 0 10%;*/
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+
+	/*----[#5]----*/
+
+	.s5 {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+
+	/*----[#6]----*/
+	.s6 {
+		position: absolute;
+		background: url(./bg-polygon-02.svg) bottom no-repeat;
+		background-size: contain;	/* contains the entire image
+			inside regardless if the image covers the full section */
+	}
+
+
+
+</style>
+<!--
+	-->
+<!--	-->
+<!--- [scripts] --->
+<script>
+
+	var form = document.getElementById('fooorm');
+	form.addEventListener('submit', function(e) {
+		event.preventDefault();;
+		var selected = selection.options[selection.selectedIndex].value;
+		console.log(selected);
+
+	});
+
+</script>
+</body>
+</html>
+
